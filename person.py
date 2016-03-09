@@ -10,6 +10,7 @@ class Person():
 
     def __init__(self, constraints=None):
         self.name = randomName()
+        self.dna=[]
         if constraints is not None:
             self.dna = constraints.getInitialSolution()
             self.weight = constraints.f(self.dna)
@@ -34,7 +35,7 @@ class Person():
     
     def copulate(man, woman, constraints, mutation=0.01):
         child = Person()
-        child.dna = woman.dna
+        child.dna.extend(woman.dna)
 
         shift = int(len(child.dna)/2.0)*randint(0,1)
         for x in range(shift):
