@@ -8,16 +8,18 @@ class File():
 		num = []
 		graph = []
 		with open(fileName, 'r') as f:
-			graphSize = f.readline()
+			graphSize = int(f.readline())
 			for line in f:
 				for s in line.split():
 					temp = int(s)
 					if temp == 9999:
 						temp = -1
 					num.append(temp)			
-				print str(num)
-				graph.append(num)
-				num = []
+				#print str(num)
+				#print len(num)
+				if len(num) == graphSize:
+					graph.append(num)
+					num = []
 		self.graph = graph
 
 

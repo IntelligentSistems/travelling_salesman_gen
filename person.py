@@ -16,7 +16,7 @@ class Person():
             self.weight = constraints.f(self.dna)
     
     def __str__(self):
-        return self.name+" weight: "+str(self.weight)+" dna: "+str(self.dna)
+        return self.name+" weight: "+str(self.weight)
 
     def __fixConflit__(self, index, replace_value):
         value = self.dna[index]

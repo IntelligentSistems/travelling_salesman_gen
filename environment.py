@@ -40,16 +40,16 @@ class Environment():
 
     def adapt(self):
         self.generatePopulation()
-        best_person = self.population.getTheBest()
+        #best_person = self.population.getTheBest()
         
         for turn in range(self.turns):
             self.makeNewGeneration()
             person = self.population.getTheBest()
-            convergence = self.population.calculateConvergence()
-            print "convergence is: "+str(convergence)
+            #convergence = self.population.calculateConvergence()
+            #print "convergence is: "+str(convergence)
             print " i: "+str(turn)+" person "+str(person)
-            if person.weight < best_person.weight:
-                best_person = person
+            #if person.weight < best_person.weight:
+            #   best_person = person
 
             #if convergence >= self.convergence:
             #    break
