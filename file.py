@@ -14,12 +14,13 @@ class File():
 					temp = int(s)
 					if temp == 9999:
 						temp = -1
-					num.append(temp)			
+					num.append(temp)
+					if len(num) == graphSize:
+						graph.append(num)
+						num = []			
 				#print str(num)
 				#print len(num)
-				if len(num) == graphSize:
-					graph.append(num)
-					num = []
+				
 		self.graph = graph
 
 
