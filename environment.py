@@ -11,7 +11,7 @@ class Environment():
     population = None
     population_size = 20
 
-    def __init__(self, filename=None, population_size=20, turns=100000, convergence=5000):
+    def __init__(self, filename=None, population_size=20, turns=100000, convergence=0.97):
         
         if filename is None:
             self.contrainsts = Event(size=20)
@@ -40,18 +40,17 @@ class Environment():
 
     def adapt(self):
         self.generatePopulation()
-        convergence = 0
         best_person = self.population.getTheBest()
         
         for turn in range(self.turns):
             self.makeNewGeneration()
             person = self.population.getTheBest()
+            convergence = self.population.calculateConvergence()
+            print "convergence is: "+str(convergence)
             print " i: "+str(turn)+" person "+str(person)
             if person.weight < best_person.weight:
                 best_person = person
-                convergence = 0
 
-            convergence += 1
             #if convergence >= self.convergence:
             #    break
 

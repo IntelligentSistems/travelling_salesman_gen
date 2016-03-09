@@ -60,4 +60,20 @@ class Population():
                 better_person = person
         return better_person
 
+    def calculateConvergence(self):
+
+        conv = {}
+        for person in self.people:
+            if person.weight not in conv:
+                conv[person.weight] = 1
+            else:
+                conv[person.weight] += 1
+
+        greater = 0
+        for key in conv:
+            if conv[key] > greater:
+                greater = conv[key]
+
+        return greater/float(len(self))
+
 
