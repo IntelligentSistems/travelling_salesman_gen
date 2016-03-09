@@ -47,6 +47,9 @@ class Person():
 
         child.mutation(mutation)
         child.weight = constraints.f(child.dna)
+        if child.weight is None:
+            return None
+        
         return child
 
 
